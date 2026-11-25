@@ -26,12 +26,12 @@ export function LogoMark({ className = "h-9" }: { className?: string }) {
 export default function Logo({ size = "md" }: { size?: "md" | "lg" }) {
   const large = size === "lg";
   return (
-    <Link href="/" aria-label="SoftDevGlobal home" className="group inline-flex shrink-0 items-center gap-3 text-white">
+    <Link href="/" aria-label="SoftDevGlobal home" className="group inline-flex shrink-0 items-center gap-3 text-fg">
       <LogoMark className={`${large ? "h-11" : "h-9"} transition duration-300 group-hover:-rotate-6`} />
       <span aria-hidden className={`${large ? "h-9" : "h-8"} w-px bg-line`} />
       <span className="flex flex-col leading-none">
         <span className={`${large ? "text-xl" : "text-[17px]"} font-display font-bold tracking-[0.06em]`}>SOFTDEV</span>
-        <span className={`${large ? "mt-1.5 text-[10px]" : "mt-1 text-[9px]"} font-semibold tracking-[0.42em] text-primary`}>
+        <span className={`${large ? "mt-1.5 text-[10px]" : "mt-1 text-[9px]"} font-semibold tracking-[0.42em] text-accent`}>
           GLOBAL
         </span>
       </span>

@@ -32,11 +32,11 @@ export default function TechStack() {
                 aria-selected={i === active}
                 onClick={() => setActive(i)}
                 className={`flex shrink-0 items-center justify-center gap-6 rounded-xl px-2 py-2.5 text-center text-xs font-semibold transition sm:justify-between sm:px-4 sm:py-3 sm:text-left sm:text-sm ${
-                  i === active ? "bg-primary text-ink" : "text-muted hover:bg-surface-2 hover:text-white"
+                  i === active ? "bg-primary text-white" : "text-muted hover:bg-surface-2 hover:text-fg"
                 }`}
               >
                 {g.title}
-                <span className={`hidden font-mono text-[11px] sm:inline ${i === active ? "text-ink/60" : "text-muted/70"}`}>
+                <span className={`hidden font-mono text-[11px] sm:inline ${i === active ? "text-white/70" : "text-muted/70"}`}>
                   {String(g.items.length).padStart(2, "0")}
                 </span>
               </button>
@@ -46,7 +46,7 @@ export default function TechStack() {
           {/* panel */}
           <div role="tabpanel" className="bg-dots p-5 sm:p-10">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-2xl font-bold text-white">{group.title}</h3>
+              <h3 className="text-2xl font-bold text-fg">{group.title}</h3>
               <p className="text-sm text-muted">{group.description}</p>
             </div>
 

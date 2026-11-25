@@ -16,7 +16,7 @@ export default function TechMarquee() {
             <li
               key={`${name}-${i}`}
               aria-hidden={i >= allTech.length}
-              className="flex items-center gap-2.5 text-muted transition hover:text-white"
+              className="flex items-center gap-2.5 text-muted transition hover:text-fg"
             >
               <Icon size={22} />
               <span className="whitespace-nowrap text-sm font-medium">{name}</span>

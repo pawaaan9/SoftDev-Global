@@ -31,7 +31,7 @@ export default function Industries() {
             <Reveal key={name} delay={(i % 4) * 70} className="bg-background">
               <Link href={href} className="group block h-full p-5 transition-colors duration-300 hover:bg-royal sm:p-7">
                 <Icon size={24} className="text-accent transition group-hover:text-white" />
-                <h3 className="mt-5 text-sm font-bold text-white sm:mt-6 sm:text-base">{name}</h3>
+                <h3 className="mt-5 text-sm font-bold text-fg transition group-hover:text-white sm:mt-6 sm:text-base">{name}</h3>
                 <p className="mt-1.5 text-xs text-muted transition group-hover:text-white/75 sm:text-sm">{desc}</p>
               </Link>
             </Reveal>

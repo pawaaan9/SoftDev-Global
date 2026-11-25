@@ -11,12 +11,12 @@ function Row({ words, reverse }: { words: string[]; reverse?: boolean }) {
           <li key={i} aria-hidden={i >= words.length} className="flex items-center gap-10">
             <span
               className={`whitespace-nowrap font-display text-5xl font-extrabold uppercase tracking-tight sm:text-7xl ${
-                i % 2 === 0 ? "text-white" : "text-outline"
+                i % 2 === 0 ? "text-fg" : "text-outline"
               }`}
             >
               {w}
             </span>
-            <span className="text-3xl text-primary sm:text-5xl">✦</span>
+            <span className="text-3xl text-accent sm:text-5xl">✦</span>
           </li>
         ))}
       </ul>

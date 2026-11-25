@@ -37,21 +37,21 @@ export default function ContactForm() {
 
   const chip = (active: boolean) =>
     `rounded-full border px-4 py-2 text-sm transition ${
-      active ? "border-primary bg-primary text-ink" : "border-line text-muted hover:border-accent/50 hover:text-white"
+      active ? "border-primary bg-primary text-white" : "border-line text-muted hover:border-accent/50 hover:text-fg"
     }`;
 
   const input =
-    "w-full rounded-xl border border-line bg-background px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-muted/60 focus:border-primary";
+    "w-full rounded-xl border border-line bg-background px-4 py-3.5 text-sm text-fg outline-none transition placeholder:text-muted/60 focus:border-primary";
 
   return (
     <form onSubmit={handleSubmit} className="rounded-3xl border border-line bg-surface p-6 sm:p-10">
-      <h2 className="text-2xl font-bold text-white">Send us a message</h2>
+      <h2 className="text-2xl font-bold text-fg">Send us a message</h2>
       <p className="mt-2 text-sm text-muted">
         Fill up the form and our team will get back to you {site.replyTime}.
       </p>
 
       <fieldset className="mt-8">
-        <legend className="text-sm font-semibold text-white">I&rsquo;m interested in</legend>
+        <legend className="text-sm font-semibold text-fg">I&rsquo;m interested in</legend>
         <div className="mt-4 flex flex-wrap gap-2">
           {interestsList.map((t) => (
             <button type="button" key={t} onClick={() => toggle(t)} aria-pressed={interests.includes(t)} className={chip(interests.includes(t))}>
@@ -63,19 +63,19 @@ export default function ContactForm() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <label className="block">
-          <span className="text-sm font-semibold text-white">Full name *</span>
+          <span className="text-sm font-semibold text-fg">Full name *</span>
           <input name="name" required autoComplete="name" className={`${input} mt-2`} placeholder="Jane Smith" />
         </label>
         <label className="block">
-          <span className="text-sm font-semibold text-white">Email address *</span>
+          <span className="text-sm font-semibold text-fg">Email address *</span>
           <input name="email" type="email" required autoComplete="email" className={`${input} mt-2`} placeholder="jane@business.com.au" />
         </label>
         <label className="block">
-          <span className="text-sm font-semibold text-white">Phone number</span>
+          <span className="text-sm font-semibold text-fg">Phone number</span>
           <input name="phone" type="tel" autoComplete="tel" className={`${input} mt-2`} placeholder="04xx xxx xxx" />
         </label>
         <label className="block">
-          <span className="text-sm font-semibold text-white">Country</span>
+          <span className="text-sm font-semibold text-fg">Country</span>
           <select name="country" defaultValue="Australia" className={`${input} mt-2 appearance-none`}>
             {countries.map((c) => (
               <option key={c} value={c}>
@@ -85,7 +85,7 @@ export default function ContactForm() {
           </select>
         </label>
         <label className="block sm:col-span-2">
-          <span className="text-sm font-semibold text-white">Subject</span>
+          <span className="text-sm font-semibold text-fg">Subject</span>
           <input
             name="subject"
             className={`${input} mt-2`}
@@ -94,7 +94,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block sm:col-span-2">
-          <span className="text-sm font-semibold text-white">Message *</span>
+          <span className="text-sm font-semibold text-fg">Message *</span>
           <textarea
             name="message"
             required
@@ -107,7 +107,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-sm font-semibold text-ink transition hover:bg-primary-hover sm:w-auto"
+        className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-sm font-semibold text-white transition hover:bg-primary-hover sm:w-auto"
       >
         Send message
         <FiSend className="transition group-hover:translate-x-0.5" />

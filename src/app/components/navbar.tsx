@@ -8,6 +8,7 @@ import { navLinks } from "../data/nav";
 import { services } from "../data/services";
 import { site } from "../data/site";
 import Logo from "./logo";
+import ThemeToggle from "./theme-toggle";
 
 type Pill = { left: number; width: number } | null;
 
@@ -73,8 +74,8 @@ export default function Navbar() {
       <div
         className={`relative flex h-[62px] items-center justify-between rounded-full border pl-3 pr-2 transition-all duration-500 sm:pl-4 ${
           solid
-            ? "border-line bg-surface/90 shadow-2xl shadow-black/60 backdrop-blur-xl"
-            : "border-white/[0.06] bg-white/[0.02] backdrop-blur-md"
+            ? "border-line bg-surface/90 shadow-2xl shadow-black/10 dark:shadow-black/60 backdrop-blur-xl"
+            : "border-fg/[0.06] bg-fg/[0.02] backdrop-blur-md"
         }`}
         onMouseLeave={() => {
           setMegaOpen(false);
@@ -87,7 +88,7 @@ export default function Navbar() {
         <ul className="relative hidden items-center text-sm lg:flex">
           <span
             aria-hidden
-            className={`absolute top-1/2 h-10 -translate-y-1/2 rounded-full bg-white/[0.07] transition-all duration-300 ease-out ${
+            className={`absolute top-1/2 h-10 -translate-y-1/2 rounded-full bg-fg/[0.07] transition-all duration-300 ease-out ${
               pill ? "opacity-100" : "opacity-0"
             }`}
             style={pill ? { left: pill.left, width: pill.width } : undefined}
@@ -102,12 +103,12 @@ export default function Navbar() {
               type="button"
               aria-expanded={megaOpen}
               onClick={() => setMegaOpen((v) => !v)}
-              className={`relative z-10 flex items-center gap-1 px-4 py-2.5 font-medium transition hover:text-white ${
-                megaOpen || pathname.startsWith("/services") ? "text-white" : "text-muted"
+              className={`relative z-10 flex items-center gap-1 px-4 py-2.5 font-medium transition hover:text-fg ${
+                megaOpen || pathname.startsWith("/services") ? "text-fg" : "text-muted"
               }`}
             >
               Services
-              <FiChevronDown className={`transition duration-300 ${megaOpen ? "rotate-180 text-primary" : ""}`} />
+              <FiChevronDown className={`transition duration-300 ${megaOpen ? "rotate-180 text-accent" : ""}`} />
             </button>
           </li>
           {navLinks.map((link) => (
@@ -120,8 +121,8 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className={`relative z-10 block px-4 py-2.5 font-medium transition hover:text-white ${
-                  isActive(link.href) ? "text-white" : "text-muted"
+                className={`relative z-10 block px-4 py-2.5 font-medium transition hover:text-fg ${
+                  isActive(link.href) ? "text-fg" : "text-muted"
                 }`}
               >
                 {link.label}
@@ -134,13 +135,15 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
+
           {/* desktop CTA: label + arrow bubble that turns on hover */}
           <Link
             href="/contact"
-            className="group hidden h-11 items-center gap-3 rounded-full bg-primary pl-5 pr-1.5 text-sm font-semibold text-ink transition hover:bg-primary-hover lg:inline-flex"
+            className="group hidden h-11 items-center gap-3 rounded-full bg-primary pl-5 pr-1.5 text-sm font-semibold text-white transition hover:bg-primary-hover lg:inline-flex"
           >
             Get a quote
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-primary transition duration-300 group-hover:-rotate-45">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-primary transition duration-300 group-hover:-rotate-45">
               <FiArrowRight />
             </span>
           </Link>
@@ -151,18 +154,18 @@ export default function Navbar() {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
             className={`flex h-11 w-11 items-center justify-center rounded-full transition lg:hidden ${
-              mobileOpen ? "bg-primary" : "bg-white/[0.06] hover:bg-white/10"
+              mobileOpen ? "bg-primary" : "bg-fg/[0.06] hover:bg-fg/10"
             }`}
           >
             <span className="relative block h-3 w-5">
               <span
                 className={`absolute left-0 h-0.5 w-5 rounded-full transition-all duration-300 ${
-                  mobileOpen ? "top-[5px] rotate-45 bg-ink" : "top-0 bg-white"
+                  mobileOpen ? "top-[5px] rotate-45 bg-white" : "top-0 bg-fg"
                 }`}
               />
               <span
                 className={`absolute right-0 h-0.5 rounded-full transition-all duration-300 ${
-                  mobileOpen ? "bottom-[5px] w-5 -rotate-45 bg-ink" : "bottom-0 w-3 bg-white"
+                  mobileOpen ? "bottom-[5px] w-5 -rotate-45 bg-white" : "bottom-0 w-3 bg-fg"
                 }`}
               />
             </span>
@@ -181,19 +184,19 @@ export default function Navbar() {
         {/* services mega menu (desktop) */}
         {megaOpen && (
           <div className="absolute inset-x-0 top-full hidden pt-3 lg:block">
-            <div className="animate-float-in grid grid-cols-[1fr_280px] gap-3 rounded-3xl border border-line bg-surface/95 p-3 shadow-2xl shadow-black/60 backdrop-blur-xl">
+            <div className="animate-float-in grid grid-cols-[1fr_280px] gap-3 rounded-3xl border border-line bg-surface/95 p-3 shadow-2xl shadow-black/10 dark:shadow-black/60 backdrop-blur-xl">
               <ul className="grid grid-cols-2 gap-1 xl:grid-cols-3">
                 {services.map(({ slug, title, short, icon: Icon }, i) => (
                   <li key={slug} className="animate-float-in" style={{ animationDelay: `${i * 35}ms` }}>
                     <Link
                       href={`/services/${slug}`}
-                      className="group flex gap-4 rounded-2xl p-4 transition hover:bg-white/[0.04]"
+                      className="group flex gap-4 rounded-2xl p-4 transition hover:bg-fg/[0.04]"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line bg-background text-accent transition duration-300 group-hover:rotate-[-8deg] group-hover:border-primary group-hover:bg-primary group-hover:text-ink">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line bg-background text-accent transition duration-300 group-hover:rotate-[-8deg] group-hover:border-primary group-hover:bg-primary group-hover:text-white">
                         <Icon size={18} />
                       </span>
                       <span>
-                        <span className="flex items-center gap-1 text-sm font-semibold text-white">
+                        <span className="flex items-center gap-1 text-sm font-semibold text-fg">
                           {title}
                           <FiArrowUpRight className="opacity-0 transition group-hover:opacity-100" />
                         </span>
@@ -203,11 +206,11 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-royal p-6">
-                <span aria-hidden className="absolute -bottom-16 -right-16 h-44 w-44 rounded-full border-[28px] border-white/10" />
+              <div className="dark relative flex flex-col justify-between overflow-hidden rounded-2xl bg-royal p-6">
+                <span aria-hidden className="absolute -bottom-16 -right-16 h-44 w-44 rounded-full border-[28px] border-fg/10" />
                 <div className="relative">
-                  <p className="font-mono text-xs uppercase tracking-wider text-white/65">See it in action</p>
-                  <p className="mt-3 text-lg font-bold leading-snug text-white">
+                  <p className="font-mono text-xs uppercase tracking-wider text-fg/65">See it in action</p>
+                  <p className="mt-3 text-lg font-bold leading-snug text-fg">
                     Try a live preview of any of our business apps before you decide.
                   </p>
                 </div>
@@ -242,16 +245,16 @@ export default function Navbar() {
                     className="group flex items-center justify-between border-b border-line py-4"
                   >
                     <span className="flex items-baseline gap-4">
-                      <span className="font-mono text-xs text-primary">0{i + 1}</span>
+                      <span className="font-mono text-xs text-accent">0{i + 1}</span>
                       <span
-                        className={`font-display text-4xl font-bold tracking-tight transition group-hover:text-primary sm:text-5xl ${
-                          isActive(link.href) ? "text-primary" : "text-white"
+                        className={`font-display text-4xl font-bold tracking-tight transition group-hover:text-accent sm:text-5xl ${
+                          isActive(link.href) ? "text-accent" : "text-fg"
                         }`}
                       >
                         {link.label}
                       </span>
                     </span>
-                    <FiArrowUpRight size={22} className="text-muted transition group-hover:rotate-45 group-hover:text-primary" />
+                    <FiArrowUpRight size={22} className="text-muted transition group-hover:rotate-45 group-hover:text-accent" />
                   </Link>
                 </li>
               ))}
@@ -268,9 +271,9 @@ export default function Navbar() {
                     <Link
                       href={`/services/${slug}`}
                       onClick={() => setMobileOpen(false)}
-                      className="flex h-full flex-col gap-3 rounded-2xl border border-line bg-surface p-4 text-sm font-medium text-white transition active:border-primary"
+                      className="flex h-full flex-col gap-3 rounded-2xl border border-line bg-surface p-4 text-sm font-medium text-fg transition active:border-primary"
                     >
-                      <Icon size={18} className="text-primary" />
+                      <Icon size={18} className="text-accent" />
                       {title}
                     </Link>
                   </li>
@@ -279,15 +282,15 @@ export default function Navbar() {
             </div>
 
             <div
-              className="animate-float-in relative mt-10 overflow-hidden rounded-3xl bg-royal p-6"
+              className="dark animate-float-in relative mt-10 overflow-hidden rounded-3xl bg-royal p-6"
               style={{ animationDelay: "500ms" }}
             >
-              <span aria-hidden className="absolute -bottom-14 -right-14 h-40 w-40 rounded-full border-[24px] border-white/10" />
-              <p className="relative font-display text-2xl font-bold leading-tight text-white">Have a project in mind?</p>
-              <a href={site.phoneHref} className="relative mt-3 flex items-center gap-2 text-sm font-medium text-white/80">
+              <span aria-hidden className="absolute -bottom-14 -right-14 h-40 w-40 rounded-full border-[24px] border-fg/10" />
+              <p className="relative font-display text-2xl font-bold leading-tight text-fg">Have a project in mind?</p>
+              <a href={site.phoneHref} className="relative mt-3 flex items-center gap-2 text-sm font-medium text-fg/80">
                 <FiPhone /> {site.phone}
               </a>
-              <a href={`mailto:${site.email}`} className="relative mt-1 block text-sm font-medium text-white/80">
+              <a href={`mailto:${site.email}`} className="relative mt-1 block text-sm font-medium text-fg/80">
                 {site.email}
               </a>
               <Link

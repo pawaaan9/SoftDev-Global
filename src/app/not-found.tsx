@@ -6,7 +6,7 @@ export default function NotFound() {
       <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
       <div className="mx-auto max-w-2xl px-4 text-center">
         <p className="heading-display text-outline font-display font-extrabold">404</p>
-        <h1 className="mt-4 text-3xl font-extrabold text-white sm:text-4xl">This page has gone missing</h1>
+        <h1 className="mt-4 text-3xl font-extrabold text-fg sm:text-4xl">This page has gone missing</h1>
         <p className="desc mt-4">The page you&rsquo;re looking for doesn&rsquo;t exist or has moved.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button href="/" arrow>

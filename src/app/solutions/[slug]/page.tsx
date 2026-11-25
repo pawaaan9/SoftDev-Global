@@ -71,7 +71,7 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="bg-dots rounded-3xl border border-line bg-surface p-4 sm:p-12 lg:px-32">
-              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-line shadow-2xl shadow-black/50">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-line shadow-2xl shadow-black/10 dark:shadow-black/50">
                 <Image src={solution.image} alt={`${solution.title} screenshot`} fill priority sizes="(min-width: 1024px) 70vw, 95vw" className="object-cover" />
               </div>
             </div>
@@ -94,7 +94,7 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
                 ["key-features", "Key features"],
               ].map(([id, label]) => (
                 <li key={id}>
-                  <a href={`#${id}`} className="-ml-px block border-l border-transparent py-1 pl-4 text-muted transition hover:border-primary hover:text-white">
+                  <a href={`#${id}`} className="-ml-px block border-l border-transparent py-1 pl-4 text-muted transition hover:border-primary hover:text-fg">
                     {label}
                   </a>
                 </li>
@@ -102,7 +102,7 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
             </ul>
             <Link
               href={quoteHref}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-ink transition hover:bg-primary-hover"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-hover"
             >
               Get a quote <FiArrowUpRight />
             </Link>
@@ -111,13 +111,13 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
           <div className="space-y-14 sm:space-y-20">
             <Reveal>
               <div id="overview" className="scroll-mt-32">
-                <h2 className="text-3xl font-extrabold text-white">Overview</h2>
+                <h2 className="text-3xl font-extrabold text-fg">Overview</h2>
                 <p className="mt-5 max-w-3xl text-lg leading-relaxed text-foreground/80">{solution.intro}</p>
               </div>
             </Reveal>
 
             <div id="modules" className="scroll-mt-32">
-              <h2 className="text-3xl font-extrabold text-white">Modules &amp; live previews</h2>
+              <h2 className="text-3xl font-extrabold text-fg">Modules &amp; live previews</h2>
               <p className="mt-3 max-w-2xl text-muted">
                 Click &ldquo;Live preview&rdquo; to see how each part of the system works. Use the demo login where one is shown.
               </p>
@@ -131,14 +131,14 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
             </div>
 
             <div id="key-features" className="scroll-mt-32">
-              <h2 className="text-3xl font-extrabold text-white">Key features</h2>
+              <h2 className="text-3xl font-extrabold text-fg">Key features</h2>
               <div className="mt-8 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
                 {solution.features.map((f) => (
                   <div key={f.title} className="bg-background p-7">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-surface-2 text-accent">
                       <FiCheck size={14} />
                     </span>
-                    <h3 className="mt-5 font-bold text-white">{f.title}</h3>
+                    <h3 className="mt-5 font-bold text-fg">{f.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted">{f.desc}</p>
                   </div>
                 ))}
@@ -151,8 +151,8 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
       {/* quote */}
       <section className="border-y border-line py-16 sm:py-24">
         <Reveal className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <span className="font-mono text-6xl leading-none text-primary">&ldquo;</span>
-          <p className="mt-2 font-display text-2xl font-extrabold leading-tight text-white sm:text-5xl">{solution.quote}</p>
+          <span className="font-mono text-6xl leading-none text-accent">&ldquo;</span>
+          <p className="mt-2 font-display text-2xl font-extrabold leading-tight text-fg sm:text-5xl">{solution.quote}</p>
           <p className="mt-6 font-mono text-xs uppercase tracking-wider text-muted">{solution.name}</p>
         </Reveal>
       </section>
@@ -167,10 +167,10 @@ export default async function SolutionPage({ params }: { params: ParamsPromise }
               </div>
               <div>
                 <p className="font-mono text-xs uppercase tracking-wider text-muted">Next solution</p>
-                <p className="mt-2 text-2xl font-extrabold text-white sm:text-3xl">{next.name}</p>
+                <p className="mt-2 text-2xl font-extrabold text-fg sm:text-3xl">{next.name}</p>
               </div>
             </div>
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-line text-white transition group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-ink">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-line text-fg transition group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
               <FiArrowUpRight size={22} />
             </span>
           </Link>
@@ -190,7 +190,7 @@ function ModuleCard({ module: m, index, name }: { module: Module; index: number;
       </div>
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <span className="font-mono text-xs text-muted">{String(index + 1).padStart(2, "0")}</span>
-        <h3 className="mt-2 text-xl font-bold text-white">{m.title}</h3>
+        <h3 className="mt-2 text-xl font-bold text-fg">{m.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted">{m.desc}</p>
         {m.note && <p className="mt-3 text-sm leading-relaxed text-foreground/85">{m.note}</p>}
 
@@ -200,10 +200,10 @@ function ModuleCard({ module: m, index, name }: { module: Module; index: number;
               <FiKey /> Demo login
             </p>
             <p className="mt-2 break-all text-muted">
-              Email: <span className="select-all text-white">{m.demo.email}</span>
+              Email: <span className="select-all text-fg">{m.demo.email}</span>
             </p>
             <p className="mt-0.5 break-all text-muted">
-              Password: <span className="select-all text-white">{m.demo.password}</span>
+              Password: <span className="select-all text-fg">{m.demo.password}</span>
             </p>
           </div>
         )}
@@ -215,7 +215,7 @@ function ModuleCard({ module: m, index, name }: { module: Module; index: number;
                 href={m.previewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-primary-hover"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-hover"
               >
                 Live preview <FiExternalLink />
               </a>
@@ -225,7 +225,7 @@ function ModuleCard({ module: m, index, name }: { module: Module; index: number;
                 href={m.videoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent/50 hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm font-semibold text-fg transition hover:border-accent/50 hover:bg-fg/5"
               >
                 <FiPlay /> Watch video
               </a>
@@ -241,7 +241,7 @@ function Fact({ label, value, className = "" }: { label: string; value: React.Re
   return (
     <div className={`bg-background px-4 py-5 sm:px-6 sm:py-6 lg:px-8 ${className}`}>
       <dt className="font-mono text-[11px] uppercase tracking-wider text-muted">{label}</dt>
-      <dd className="mt-2 text-sm font-medium text-white">{value}</dd>
+      <dd className="mt-2 text-sm font-medium text-fg">{value}</dd>
     </div>
   );
 }

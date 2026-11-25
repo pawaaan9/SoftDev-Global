@@ -3,7 +3,7 @@
   <g transform="translate(3.2 3.2) scale(0.9)">
     <path d="M5.59 26.39A27 27 0 0 1 58.41 26.39M58.41 37.61A27 27 0 0 1 5.59 37.61" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
     <path fill="#fff" d="M20 43.5C22 34 26 24 31 17C33 14 36 12 39 12.5L48 19L41.5 18.5C41 27 42.5 36 44 43.5Q32 45.5 20 43.5Z"/>
-    <path fill="#2196f3" d="M21.3 37.6Q32 40.2 42.9 37.4L43.6 41.4Q32 43.8 20.6 41.6Z"/>
+    <path fill="#3252b8" d="M21.3 37.6Q32 40.2 42.9 37.4L43.6 41.4Q32 43.8 20.6 41.6Z"/>
     <path fill="#fff" d="M11 42Q32 54 53 42Q32 46.5 11 42Z"/>
   </g>
 </svg>

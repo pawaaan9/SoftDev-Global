@@ -15,7 +15,7 @@ export default function Services() {
             title="Software that runs your business, end to end"
             description="From booking engines and owner dashboards to staff apps in your team's pocket, we build the tools that keep your day running smoothly."
           />
-          <Link href="/contact" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-white">
+          <Link href="/contact" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-fg">
             <span className="border-b border-primary pb-0.5">Discuss your project</span>
             <FiArrowUpRight className="text-accent transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
@@ -32,18 +32,18 @@ export default function Services() {
                 <span className="absolute inset-x-0 bottom-0 h-0 bg-primary transition-all duration-500 group-hover:h-1" />
 
                 <div className="flex items-start justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-surface-2 text-accent transition duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-ink">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-surface-2 text-accent transition duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
                     <Icon size={22} />
                   </span>
                   <span className="font-mono text-xs text-muted">/0{i + 1}</span>
                 </div>
 
-                <h3 className="mt-8 text-xl font-bold text-white">{title}</h3>
+                <h3 className="mt-8 text-xl font-bold text-fg">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{short}</p>
 
                 <div className="mt-auto flex items-end justify-between gap-4 pt-8">
                   <p className="font-mono text-[11px] text-muted/80">{tech.slice(0, 3).join(" · ")}</p>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-white transition group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-ink">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-fg transition group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
                     <FiArrowUpRight />
                   </span>
                 </div>

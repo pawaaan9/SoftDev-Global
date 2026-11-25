@@ -1,27 +1,63 @@
 @import "tailwindcss";
 
+/* dark: utilities apply inside any element with the .dark class (set on <html> by layout.tsx). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
- * Brand theme for SoftDevGlobal.
- * Colours come from the softdev.global theme: azure hsl(207 90% 54%) = #2196f3 and
- * royal blue #3252b8, set on a deep navy background. Flat colours only.
+ * Brand theme for SoftDevGlobal, in light and dark.
+ * One brand blue: SoftDev royal blue #3252b8 (from softdev.global), used for buttons, panels,
+ * highlights and, in light mode, text. Dark mode uses a lighter tint of the same blue for text and
+ * icons so they stay readable on navy. Flat colours only.
+ *
+ * Royal-blue panels add the "dark" class so their text stays white in both themes.
  */
 :root {
+  --background: #f5f7fb;
+  --foreground: #1e293b; /* body text */
+  --fg: #0b1324; /* headings and strong text */
+  --surface: #ffffff; /* cards */
+  --surface-2: #eef2f8; /* raised cards / hover */
+  --line: #e2e8f0; /* borders */
+  --muted: #5b6b82; /* secondary text */
+  --accent: #3252b8; /* royal blue for text and icons */
+  --grid-line: rgba(20, 50, 110, 0.06);
+  --dot: rgba(20, 50, 110, 0.13);
+  --outline: rgba(11, 19, 36, 0.38);
+  --lines: rgba(20, 50, 110, 0.025);
+  color-scheme: light;
+}
+
+.dark {
   --background: #050a14;
   --foreground: #e6edf7;
+  --fg: #ffffff;
+  --surface: #0a1222;
+  --surface-2: #111b2f;
+  --line: #1b2740;
+  --muted: #94a3b8;
+  --accent: #7e99f1; /* royal blue, lightened to read on navy */
+  --grid-line: rgba(126, 153, 241, 0.05);
+  --dot: rgba(126, 153, 241, 0.1);
+  --outline: rgba(230, 237, 247, 0.24);
+  --lines: rgba(126, 153, 241, 0.02);
+  color-scheme: dark;
 }
 
 @theme inline {
-  /* brand colors */
-  --color-primary: #2196f3; /* SoftDev azure: buttons, highlights, dots */
-  --color-primary-hover: #42a5f5;
-  --color-accent: #64b5f6; /* lighter azure for text and icons on dark */
-  --color-royal: #3252b8; /* SoftDev royal blue: large panels with white text */
+  /* brand colors: the same in both themes */
+  --color-primary: #3252b8; /* SoftDev royal blue: buttons, highlights, dots (white text on it) */
+  --color-primary-hover: #3d5fc9;
+  --color-royal: #3252b8; /* same royal blue, used for large panels */
   --color-royal-hover: #3d5fc9;
-  --color-ink: #04101f; /* text on azure */
-  --color-surface: #0a1222; /* cards */
-  --color-surface-2: #111b2f; /* raised cards / hover */
-  --color-line: #1b2740; /* borders */
-  --color-muted: #94a3b8; /* secondary text */
+  --color-ink: #04101f; /* dark text on white buttons */
+
+  /* theme colors: switch with light/dark */
+  --color-fg: var(--fg); /* headings and strong text */
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
 
   /* expose background/foreground + fonts */
   --color-background: var(--background);
@@ -48,8 +84,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-ink);
+  background: #3252b8;
+  color: #ffffff;
 }
 
 /* Smooth scrolling for anchor links, offset for the sticky navbar */
@@ -59,22 +95,22 @@ section[id] { scroll-margin-top: 6rem; }
 /* Faint line grid that fades towards the edges */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(148, 197, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 197, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 30%, transparent 100%);
 }
 
 /* Dot pattern for cards */
 .bg-dots {
-  background-image: radial-gradient(rgba(148, 197, 255, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
   background-size: 18px 18px;
 }
 
 /* Hollow, outlined text for large decorative words */
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(230, 237, 247, 0.24);
+  -webkit-text-stroke: 1px var(--outline);
 }
 
 /* Small mono label above section headings */
@@ -87,12 +123,12 @@ section[id] { scroll-margin-top: 6rem; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--accent);
 }
 
 /* Animated diagonal lines overlay */
 .animated-lines {
-  background-image: repeating-linear-gradient(115deg, rgba(148, 197, 255, 0.02) 0 1px, transparent 1px 48px);
+  background-image: repeating-linear-gradient(115deg, var(--lines) 0 1px, transparent 1px 48px);
   animation: lines-drift 40s linear infinite;
 }
 
@@ -176,5 +212,5 @@ details summary::-webkit-details-marker { display: none; }
 .desc {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: var(--color-muted);
+  color: var(--muted);
 }

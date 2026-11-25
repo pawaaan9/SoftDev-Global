@@ -58,7 +58,7 @@ export default function Process() {
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-primary font-mono text-xs font-semibold text-accent sm:hidden">
                       {i + 1}
                     </span>
-                    <h3 className="text-2xl font-bold text-white">{s.title}</h3>
+                    <h3 className="text-2xl font-bold text-fg">{s.title}</h3>
                   </div>
                   <span className="rounded-full border border-line px-3 py-1 font-mono text-[11px] text-muted">{s.time}</span>
                 </div>

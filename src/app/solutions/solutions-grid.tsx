@@ -11,7 +11,7 @@ export default function SolutionsGrid() {
 
   const chip = (on: boolean) =>
     `inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition ${
-      on ? "border-primary bg-primary text-ink" : "border-line text-muted hover:border-accent/50 hover:text-white"
+      on ? "border-primary bg-primary text-white" : "border-line text-muted hover:border-accent/50 hover:text-fg"
     }`;
 
   return (
@@ -22,7 +22,7 @@ export default function SolutionsGrid() {
           return (
             <button key={c} type="button" onClick={() => setActive(c)} aria-pressed={active === c} className={chip(active === c)}>
               {c}
-              <span className={`font-mono text-[11px] ${active === c ? "text-ink/60" : "text-muted/70"}`}>{count}</span>
+              <span className={`font-mono text-[11px] ${active === c ? "text-white/70" : "text-muted/70"}`}>{count}</span>
             </button>
           );
         })}

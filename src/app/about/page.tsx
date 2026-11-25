@@ -44,7 +44,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <Reveal>
-            <h2 className="text-3xl font-extrabold text-white sm:text-4xl">What we do</h2>
+            <h2 className="text-3xl font-extrabold text-fg sm:text-4xl">What we do</h2>
           </Reveal>
           <Reveal delay={100} className="space-y-5 text-lg leading-relaxed text-foreground/80">
             <p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
           {stats.map((s, i) => (
             <Reveal key={s.v} delay={i * 80} className="bg-background">
               <div className="h-full p-8 sm:p-10">
-                <dt className="font-display text-3xl font-extrabold text-white sm:text-4xl">{s.k}</dt>
+                <dt className="font-display text-3xl font-extrabold text-fg sm:text-4xl">{s.k}</dt>
                 <dd className="mt-2 text-sm text-muted">{s.v}</dd>
               </div>
             </Reveal>
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <Reveal key={v.k} delay={i * 100} className="bg-background">
               <div className="h-full p-8 sm:p-10">
                 <span className="font-mono text-xs uppercase tracking-wider text-accent">0{i + 1} / {v.k}</span>
-                <p className="mt-5 text-xl font-semibold leading-snug text-white">{v.v}</p>
+                <p className="mt-5 text-xl font-semibold leading-snug text-fg">{v.v}</p>
               </div>
             </Reveal>
           ))}

@@ -5,7 +5,7 @@ import type { Solution } from "../data/solutions";
 
 export function LiveBadge() {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
       Live
     </span>
@@ -15,7 +15,7 @@ export function LiveBadge() {
 // Screenshot in a rounded frame. All product shots are 3:2.
 export function Shot({ src, alt, sizes, priority }: { src: string; alt: string; sizes: string; priority?: boolean }) {
   return (
-    <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-line bg-surface-2 shadow-2xl shadow-black/40">
+    <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-line bg-surface-2 shadow-2xl shadow-black/10 dark:shadow-black/40">
       <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
     </div>
   );
@@ -44,7 +44,7 @@ export default function SolutionCard({ solution, index = 0 }: { solution: Soluti
           <LiveBadge />
           <span className="text-xs text-muted">{solution.categories.join(", ")}</span>
         </div>
-        <h3 className="mt-5 text-3xl font-extrabold text-white sm:text-4xl">{solution.name}</h3>
+        <h3 className="mt-5 text-3xl font-extrabold text-fg sm:text-4xl">{solution.name}</h3>
         <p className="desc mt-4 line-clamp-4">{solution.summary}</p>
 
         <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-line pt-6 text-sm">
@@ -62,7 +62,7 @@ export default function SolutionCard({ solution, index = 0 }: { solution: Soluti
           </div>
         </dl>
 
-        <span className="mt-auto inline-flex items-center gap-2 pt-10 text-sm font-semibold text-white">
+        <span className="mt-auto inline-flex items-center gap-2 pt-10 text-sm font-semibold text-fg">
           <span className="border-b border-primary pb-0.5">View solution &amp; live preview</span>
           <FiArrowUpRight className="text-accent transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </span>
@@ -88,11 +88,11 @@ export function SolutionTile({ solution, showSummary = true }: { solution: Solut
           <span className="truncate text-xs text-muted">{solution.categories.join(", ")}</span>
           <LiveBadge />
         </div>
-        <h3 className="mt-4 text-xl font-bold text-white">{solution.name}</h3>
+        <h3 className="mt-4 text-xl font-bold text-fg">{solution.name}</h3>
         {showSummary && <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{solution.summary}</p>}
         <div className="mt-auto flex items-center justify-between pt-6">
-          <span className="text-sm font-semibold text-white">View details</span>
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-white transition group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-ink">
+          <span className="text-sm font-semibold text-fg">View details</span>
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-fg transition group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
             <FiArrowUpRight />
           </span>
         </div>

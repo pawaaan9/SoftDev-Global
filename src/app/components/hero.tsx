@@ -25,7 +25,7 @@ function SpinningBadge() {
           <textPath href="#badge-circle">Book · Manage · Automate · Grow ·</textPath>
         </text>
       </svg>
-      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-ink">
+      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white">
         <FiArrowDown />
       </span>
     </div>
@@ -45,7 +45,7 @@ export default function Hero() {
               Business app solutions
             </span>
 
-            <h1 className="heading-hero mt-5 font-extrabold text-white">
+            <h1 className="heading-hero mt-5 font-extrabold text-fg">
               We design &amp; build
               <br />
               <TypedWords words={words} />
@@ -71,7 +71,7 @@ export default function Hero() {
             <dl className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-line border-y border-line">
               {highlights.map((h) => (
                 <div key={h.k} className="px-4 py-4 first:pl-0">
-                  <dt className="text-sm font-bold text-white">{h.k}</dt>
+                  <dt className="text-sm font-bold text-fg">{h.k}</dt>
                   <dd className="mt-1 text-xs text-muted">{h.v}</dd>
                 </div>
               ))}
@@ -82,19 +82,19 @@ export default function Hero() {
             <SpinningBadge />
             <Terminal />
 
-            <div className="animate-float absolute -bottom-7 left-3 flex items-center gap-3 rounded-xl border border-line bg-surface-2 px-4 py-3 shadow-xl shadow-black/40 sm:-left-8">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-400">
+            <div className="animate-float absolute -bottom-7 left-3 flex items-center gap-3 rounded-xl border border-line bg-surface-2 px-4 py-3 shadow-xl shadow-black/10 dark:shadow-black/40 sm:-left-8">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-600 dark:text-emerald-400">
                 <FiCalendar size={18} />
               </span>
               <div>
-                <p className="text-sm font-semibold text-white">New booking confirmed</p>
+                <p className="text-sm font-semibold text-fg">New booking confirmed</p>
                 <p className="text-xs text-muted">Reminder sent to client</p>
               </div>
             </div>
 
-            <div className="sm-float-delayed absolute right-3 top-2 flex items-center gap-1.5 rounded-lg bg-primary px-2.5 py-1 sm:-right-6 sm:-top-5 sm:gap-2 sm:rounded-xl sm:px-3.5 sm:py-2 sm:shadow-xl sm:shadow-black/40">
-              <FiZap className="text-ink" size={13} />
-              <span className="text-[11px] font-semibold text-ink sm:text-xs">Live previews available</span>
+            <div className="sm-float-delayed absolute right-3 top-2 flex items-center gap-1.5 rounded-lg bg-primary px-2.5 py-1 sm:-right-6 sm:-top-5 sm:gap-2 sm:rounded-xl sm:px-3.5 sm:py-2 sm:shadow-xl sm:shadow-black/10 sm:dark:shadow-black/40">
+              <FiZap className="text-white" size={13} />
+              <span className="text-[11px] font-semibold text-white sm:text-xs">Live previews available</span>
             </div>
           </div>
         </div>

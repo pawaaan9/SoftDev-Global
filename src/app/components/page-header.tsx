@@ -18,15 +18,15 @@ export default function PageHeader({ crumbs, eyebrow, title, description, childr
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-muted">
             <li>
-              <Link href="/" className="transition hover:text-white">Home</Link>
+              <Link href="/" className="transition hover:text-fg">Home</Link>
             </li>
             {crumbs.map((c) => (
               <li key={c.label} className="flex items-center gap-1.5">
                 <FiChevronRight />
                 {c.href ? (
-                  <Link href={c.href} className="transition hover:text-white">{c.label}</Link>
+                  <Link href={c.href} className="transition hover:text-fg">{c.label}</Link>
                 ) : (
-                  <span className="text-white">{c.label}</span>
+                  <span className="text-fg">{c.label}</span>
                 )}
               </li>
             ))}
@@ -39,7 +39,7 @@ export default function PageHeader({ crumbs, eyebrow, title, description, childr
             {eyebrow}
           </span>
         )}
-        <h1 className={`${eyebrow ? "mt-5" : "mt-12"} max-w-4xl text-4xl font-extrabold leading-[1.05] text-white sm:text-6xl`}>
+        <h1 className={`${eyebrow ? "mt-5" : "mt-12"} max-w-4xl text-4xl font-extrabold leading-[1.05] text-fg sm:text-6xl`}>
           {title}
         </h1>
         {description && <p className="desc mt-6 max-w-2xl">{description}</p>}

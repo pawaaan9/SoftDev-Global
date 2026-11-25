@@ -1,4 +1,5 @@
 import type { IconType } from "react-icons";
+import { FaAws } from "react-icons/fa";
 import {
   SiAndroid,
   SiApple,
@@ -8,6 +9,7 @@ import {
   SiFirebase,
   SiFlutter,
   SiGithubactions,
+  SiGo,
   SiGooglecalendar,
   SiGooglecloud,
   SiGooglemaps,
@@ -44,7 +46,7 @@ export const techGroups: TechGroup[] = [
     description: "Fast, responsive interfaces",
     items: [
       { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+      { name: "Next.js", icon: SiNextdotjs, color: "currentColor" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
       { name: "Figma", icon: SiFigma, color: "#F24E1E" },
@@ -56,9 +58,9 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "React Native", icon: SiReact, color: "#61DAFB" },
       { name: "Flutter", icon: SiFlutter, color: "#02569B" },
-      { name: "Expo", icon: SiExpo, color: "#FFFFFF" },
+      { name: "Expo", icon: SiExpo, color: "currentColor" },
       { name: "Android", icon: SiAndroid, color: "#3DDC84" },
-      { name: "iOS", icon: SiApple, color: "#FFFFFF" },
+      { name: "iOS", icon: SiApple, color: "currentColor" },
     ],
   },
   {
@@ -67,6 +69,7 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
       { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+      { name: "Go", icon: SiGo, color: "#00ADD8" },
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
       { name: "MySQL", icon: SiMysql, color: "#4479A1" },
@@ -77,8 +80,9 @@ export const techGroups: TechGroup[] = [
     title: "Cloud & Hosting",
     description: "Reliable, scalable infrastructure",
     items: [
+      { name: "AWS", icon: FaAws, color: "#FF9900" },
       { name: "Google Cloud", icon: SiGooglecloud, color: "#4285F4" },
-      { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
+      { name: "Vercel", icon: SiVercel, color: "currentColor" },
       { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
       { name: "GitHub Actions", icon: SiGithubactions, color: "#2088FF" },
     ],

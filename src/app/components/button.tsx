@@ -11,10 +11,10 @@ type Props = {
 };
 
 const styles = {
-  primary: "bg-primary text-ink hover:bg-primary-hover",
-  secondary: "border border-line text-white hover:border-accent/50 hover:bg-white/5",
-  light: "bg-white text-ink hover:bg-white/90",
-  dark: "bg-background text-white hover:bg-background/80",
+  primary: "bg-primary text-white hover:bg-primary-hover",
+  secondary: "border border-line text-fg hover:border-accent/50 hover:bg-fg/5",
+  light: "bg-white text-ink hover:bg-white/90", // for royal-blue panels
+  dark: "bg-background text-fg hover:bg-background/80",
 };
 
 export default function Button({ href, children, variant = "primary", arrow, external, className = "" }: Props) {

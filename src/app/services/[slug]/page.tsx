@@ -52,7 +52,7 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
         </div>
         <span
           aria-hidden
-          className="absolute right-8 top-24 hidden h-40 w-40 items-center justify-center rounded-[2rem] bg-royal text-white lg:flex xl:right-[max(2rem,calc((100vw-80rem)/2+2rem))]"
+          className="dark absolute right-8 top-24 hidden h-40 w-40 items-center justify-center rounded-[2rem] bg-royal text-fg lg:flex xl:right-[max(2rem,calc((100vw-80rem)/2+2rem))]"
         >
           <span className="absolute -bottom-3 -left-3 h-12 w-12 rounded-2xl bg-primary" />
           <Icon size={64} className="relative" />
@@ -62,13 +62,13 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
       {/* capabilities */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">What we offer</h2>
+          <h2 className="text-3xl font-extrabold text-fg sm:text-4xl">What we offer</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {service.capabilities.map((c, i) => (
               <Reveal key={c.title} delay={(i % 2) * 90}>
                 <div className="group h-full rounded-3xl border border-line bg-surface p-8 transition hover:border-primary">
                   <span className="font-mono text-xs text-muted">0{i + 1}</span>
-                  <h3 className="mt-5 text-xl font-bold text-white">{c.title}</h3>
+                  <h3 className="mt-5 text-xl font-bold text-fg">{c.title}</h3>
                   <p className="mt-2 leading-relaxed text-muted">{c.desc}</p>
                 </div>
               </Reveal>
@@ -81,11 +81,11 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
       <section className="border-y border-line bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
-            <h2 className="text-3xl font-extrabold text-white">What you get</h2>
+            <h2 className="text-3xl font-extrabold text-fg">What you get</h2>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {service.deliverables.map((d) => (
-                <li key={d} className="flex items-center gap-3 rounded-xl border border-line bg-background px-4 py-3.5 text-sm text-white">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-ink">
+                <li key={d} className="flex items-center gap-3 rounded-xl border border-line bg-background px-4 py-3.5 text-sm text-fg">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-white">
                     <FiCheck size={13} />
                   </span>
                   {d}
@@ -94,13 +94,13 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
             </ul>
           </div>
           <div>
-            <h2 className="text-3xl font-extrabold text-white">Tools we use</h2>
+            <h2 className="text-3xl font-extrabold text-fg">Tools we use</h2>
             <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {service.tech.map((name) => {
                 const tech = findTech(name);
                 const TechIcon = tech?.icon;
                 return (
-                  <li key={name} className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-background px-4 py-6 text-center text-sm font-medium text-white">
+                  <li key={name} className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-background px-4 py-6 text-center text-sm font-medium text-fg">
                     {TechIcon && <TechIcon size={28} color={tech.color} />}
                     {name}
                   </li>
@@ -116,8 +116,8 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <h2 className="text-3xl font-extrabold text-white">See it live</h2>
-              <Link href="/solutions" className="group inline-flex items-center gap-2 text-sm font-semibold text-white">
+              <h2 className="text-3xl font-extrabold text-fg">See it live</h2>
+              <Link href="/solutions" className="group inline-flex items-center gap-2 text-sm font-semibold text-fg">
                 <span className="border-b border-primary pb-0.5">All solutions</span>
                 <FiArrowUpRight className="text-accent transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
@@ -138,7 +138,7 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
       {/* other services */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-white">Other services</h2>
+          <h2 className="text-3xl font-extrabold text-fg">Other services</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {others.map(({ slug, title, icon: OtherIcon }) => (
               <li key={slug}>
@@ -148,9 +148,9 @@ export default async function ServicePage({ params }: { params: ParamsPromise })
                 >
                   <div className="flex items-center justify-between">
                     <OtherIcon size={20} className="text-accent" />
-                    <FiArrowUpRight className="text-muted transition group-hover:rotate-45 group-hover:text-white" />
+                    <FiArrowUpRight className="text-muted transition group-hover:rotate-45 group-hover:text-fg" />
                   </div>
-                  <span className="text-sm font-semibold text-white">{title}</span>
+                  <span className="text-sm font-semibold text-fg">{title}</span>
                 </Link>
               </li>
             ))}

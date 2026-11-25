@@ -14,7 +14,7 @@ export default function Faq() {
             title="Questions, answered"
             description={`Can't find what you're looking for? Send us a message and our team will get back to you ${site.replyTime}.`}
           />
-          <div className="mt-6 flex flex-col items-start gap-2 text-sm font-semibold text-white">
+          <div className="mt-6 flex flex-col items-start gap-2 text-sm font-semibold text-fg">
             <a href={`mailto:${site.email}`} className="border-b border-primary pb-0.5">
               {site.email}
             </a>
@@ -27,9 +27,9 @@ export default function Faq() {
         <div className="divide-y divide-line border-y border-line">
           {faqs.map((f, i) => (
             <details key={f.q} className="group py-2" open={i === 0}>
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-white">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-fg">
                 {f.q}
-                <span className="faq-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-accent transition group-open:border-primary group-open:bg-primary group-open:text-ink">
+                <span className="faq-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-accent transition group-open:border-primary group-open:bg-primary group-open:text-white">
                   <FiPlus />
                 </span>
               </summary>

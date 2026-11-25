@@ -17,8 +17,8 @@ const script: Line[] = [
 ];
 
 const toneClass = {
-  cmd: "text-white",
-  ok: "text-emerald-400",
+  cmd: "text-fg",
+  ok: "text-emerald-600 dark:text-emerald-400",
   muted: "text-muted",
   accent: "text-accent",
 };
@@ -39,7 +39,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl shadow-black/50">
+    <div className="dark overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl shadow-black/10 dark:shadow-black/50">
       <div className="flex items-center gap-2 border-b border-line px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
         <span className="h-3 w-3 rounded-full bg-[#febc2e]" />

@@ -19,7 +19,7 @@ export default function FeaturedSolutions() {
             title="Live apps, ready for your business"
             description="Explore our collection of powerful and scalable business applications designed to streamline your workflow. Every one is live, so you can try it today."
           />
-          <Link href="/solutions" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-white">
+          <Link href="/solutions" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-fg">
             <span className="border-b border-primary pb-0.5">All {solutions.length} solutions</span>
             <FiArrowUpRight className="text-accent transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>

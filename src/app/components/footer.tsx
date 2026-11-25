@@ -15,13 +15,13 @@ export default function Footer() {
           <p className="mt-5 max-w-xs leading-relaxed">{site.tagline}</p>
           <ul className="mt-6 space-y-2.5">
             <li>
-              <a href={site.phoneHref} className="inline-flex items-center gap-2.5 text-white transition hover:text-accent">
-                <FiPhone className="text-primary" /> {site.phone}
+              <a href={site.phoneHref} className="inline-flex items-center gap-2.5 text-fg transition hover:text-accent">
+                <FiPhone className="text-accent" /> {site.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2.5 text-white transition hover:text-accent">
-                <FiMail className="text-primary" /> {site.email}
+              <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2.5 text-fg transition hover:text-accent">
+                <FiMail className="text-accent" /> {site.email}
               </a>
             </li>
             <li>
@@ -29,9 +29,9 @@ export default function Footer() {
                 href={site.mapsHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-start gap-2.5 transition hover:text-white"
+                className="inline-flex items-start gap-2.5 transition hover:text-fg"
               >
-                <FiMapPin className="mt-0.5 shrink-0 text-primary" />
+                <FiMapPin className="mt-0.5 shrink-0 text-accent" />
                 {site.address.street}, {site.address.locality}, {site.address.country}
               </a>
             </li>
@@ -58,7 +58,7 @@ export default function Footer() {
           <li className="pt-3">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-semibold text-white transition hover:border-primary hover:bg-primary hover:text-ink"
+              className="group inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 font-semibold text-fg transition hover:border-primary hover:bg-primary hover:text-white"
             >
               Get a quote <FiArrowUpRight className="transition group-hover:rotate-45" />
             </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
             textLength="1000"
             lengthAdjust="spacingAndGlyphs"
             className="fill-transparent font-display font-extrabold uppercase"
-            style={{ fontSize: 160, stroke: "rgba(148,197,255,0.24)", strokeWidth: 1.2 }}
+            style={{ fontSize: 160, stroke: "var(--outline)", strokeWidth: 1.2 }}
           >
             SoftDevGlobal
           </text>
@@ -85,9 +85,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-3 border-t border-line py-6 text-xs sm:flex-row">
           <p>&copy; {new Date().getFullYear()} {site.name}. All Rights Reserved.</p>
-          <a href="#" className="group inline-flex items-center gap-2 transition hover:text-white">
+          <a href="#" className="group inline-flex items-center gap-2 transition hover:text-fg">
             Back to top
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line transition group-hover:border-primary group-hover:bg-primary group-hover:text-ink">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line transition group-hover:border-primary group-hover:bg-primary group-hover:text-white">
               <FiArrowUp />
             </span>
           </a>
@@ -100,7 +100,7 @@ export default function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-mono text-xs uppercase tracking-wider text-white">{title}</h3>
+      <h3 className="font-mono text-xs uppercase tracking-wider text-fg">{title}</h3>
       <ul className="mt-5 space-y-3">{children}</ul>
     </div>
   );
@@ -109,7 +109,7 @@ function FooterCol({ title, children }: { title: string; children: React.ReactNo
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li>
-      <Link href={href} className="transition hover:text-white">
+      <Link href={href} className="transition hover:text-fg">
         {children}
       </Link>
     </li>

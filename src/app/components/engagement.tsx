@@ -39,16 +39,16 @@ export default function Engagement() {
             <Reveal key={m.name} delay={i * 100}>
               <div
                 className={`flex h-full flex-col rounded-3xl border p-8 ${
-                  m.featured ? "border-royal bg-royal" : "border-line bg-surface"
+                  m.featured ? "dark border-royal bg-royal" : "border-line bg-surface"
                 }`}
               >
                 {m.featured && (
-                  <span className="mb-5 w-fit rounded-full bg-primary px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-ink">
+                  <span className="mb-5 w-fit rounded-full bg-white px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-royal">
                     Most popular
                   </span>
                 )}
-                <h3 className="text-2xl font-bold text-white">{m.name}</h3>
-                <p className={`mt-2 text-sm ${m.featured ? "text-white/75" : "text-muted"}`}>{m.best}</p>
+                <h3 className="text-2xl font-bold text-fg">{m.name}</h3>
+                <p className={`mt-2 text-sm ${m.featured ? "text-fg/75" : "text-muted"}`}>{m.best}</p>
                 <ul className="mt-8 space-y-3.5">
                   {m.points.map((p) => (
                     <li key={p} className="flex gap-3 text-sm">
@@ -59,7 +59,7 @@ export default function Engagement() {
                       >
                         <FiCheck size={12} />
                       </span>
-                      <span className={m.featured ? "text-white" : "text-foreground/85"}>{p}</span>
+                      <span className={m.featured ? "text-fg" : "text-foreground/85"}>{p}</span>
                     </li>
                   ))}
                 </ul>
