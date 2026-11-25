@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/*
+ * Brand theme for SoftDevGlobal.
+ * Colours come from the softdev.global theme: azure hsl(207 90% 54%) = #2196f3 and
+ * royal blue #3252b8, set on a deep navy background. Flat colours only.
+ */
+:root {
+  --background: #050a14;
+  --foreground: #e6edf7;
+}
+
+@theme inline {
+  /* brand colors */
+  --color-primary: #2196f3; /* SoftDev azure: buttons, highlights, dots */
+  --color-primary-hover: #42a5f5;
+  --color-accent: #64b5f6; /* lighter azure for text and icons on dark */
+  --color-royal: #3252b8; /* SoftDev royal blue: large panels with white text */
+  --color-royal-hover: #3d5fc9;
+  --color-ink: #04101f; /* text on azure */
+  --color-surface: #0a1222; /* cards */
+  --color-surface-2: #111b2f; /* raised cards / hover */
+  --color-line: #1b2740; /* borders */
+  --color-muted: #94a3b8; /* secondary text */
+
+  /* expose background/foreground + fonts */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* App baseline */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* In the base layer so utilities like font-mono or tracking-* can still override it. */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-ink);
+}
+
+/* Smooth scrolling for anchor links, offset for the sticky navbar */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 6rem; }
+
+/* Faint line grid that fades towards the edges */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(148, 197, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 197, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 30%, transparent 100%);
+}
+
+/* Dot pattern for cards */
+.bg-dots {
+  background-image: radial-gradient(rgba(148, 197, 255, 0.1) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Hollow, outlined text for large decorative words */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(230, 237, 247, 0.24);
+}
+
+/* Small mono label above section headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Animated diagonal lines overlay */
+.animated-lines {
+  background-image: repeating-linear-gradient(115deg, rgba(148, 197, 255, 0.02) 0 1px, transparent 1px 48px);
+  animation: lines-drift 40s linear infinite;
+}
+
+/* Scroll reveal (toggled by the <Reveal> component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-delayed { animation: float 6s ease-in-out 1.5s infinite; }
+@media (min-width: 640px) {
+  .sm-float-delayed { animation: float 6s ease-in-out 1.5s infinite; }
+}
+.animate-marquee { animation: marquee 45s linear infinite; }
+.animate-marquee-reverse { animation: marquee 45s linear infinite reverse; }
+.animate-blink { animation: blink 1s step-end infinite; }
+.animate-spin-slow { animation: spin 30s linear infinite; }
+.animate-float-in { animation: float-in 0.45s backwards; }
+
+@keyframes lines-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 360px 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animated-lines,
+  .animate-float,
+  .animate-float-delayed,
+  .sm-float-delayed,
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-blink,
+  .animate-spin-slow,
+  .animate-float-in { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* FAQ accordion: rotate the plus icon when open */
+details[open] .faq-icon { transform: rotate(45deg); }
+details summary::-webkit-details-marker { display: none; }
+
+/* Typography helpers */
+.heading-hero {
+  font-size: clamp(2.1rem, min(4.4vw, 7vh), 4.25rem);
+  line-height: 1.06;
+}
+
+.heading-display {
+  font-size: clamp(2.6rem, 6.4vw, 5rem);
+  line-height: 1.02;
+}
+
+.desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+}
